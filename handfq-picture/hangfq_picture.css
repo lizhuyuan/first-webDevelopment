@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.pic{
+    width: 100%;
+    height: 500px;
+    margin-top: 70px;
+ }
+.pic ul li{
+    float: left;
+    width: 100px;
+    height: 500px;
+
+}
+.pic1{
+    background-image: url("images/handfq_pictrue/hand(1).jpeg");
+}
+.pic2{
+    background-image: url("images/handfq_pictrue/hand(2).jpg");
+}
+.pic3{
+    background-image: url("images/handfq_pictrue/hand(4).jpg");
+}
+.pic ul .pic4{
+    background-image: url("images/handfq_pictrue/hand(5).jpg");
+    width: 900px;
+}
+.text{
+    background-color: #000000;
+    background-color: rgba(0,0,0,0.5);
+    height: 500px;
+    width: 100px;
+}
+.text p{
+    float: left;
+    color: #ffffff;
+
+}
+.text .p1{
+    font-size: 13px;
+    width: 13px;
+    padding: 25px 25px 0 20px;
+}
+.text .p2{
+    font-size: 14px;
+    width: 14px;
+    margin-top: 25px;
+}
