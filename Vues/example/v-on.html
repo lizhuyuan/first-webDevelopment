@@ -1,0 +1,36 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>v-on实例练习</h1>
+<hr>
+<div id="app">
+    <p>得分结果：{{score}}</p>
+    <button v-on:click="addScore">加分</button>
+    <button v-on:click="subScore">减分</button>
+</div>
+<script type="text/javascript">
+    var demon= new Vue({
+        el:'#app',
+        data:{
+            score:0,
+        },
+        methods:{
+            addScore:function () {
+                return this.score++;
+            },
+            subScore:function () {
+                return this.score--;
+            }
+        }
+    })
+</script>
+</body>
+</html>

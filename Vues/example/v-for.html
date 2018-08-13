@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for实例介绍</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>v-for实例</h1>
+<hr>
+<div id="app">
+   <ul>
+       <li v-for="item in sortItems"><!--根据具体情况而定，我这里是要实时监控数据的排序变化，所以用sortItems而不是items-->
+           {{item}}
+       </li>
+   </ul>
+    <hr>
+    <ul>
+        <li v-for="(student,index) in sortStudents">
+            {{index+1}}:{{student.name}}--{{student.age}}
+            <!--index只是一个代词，也可以写aa、b等，{{student}}直接这样写的话是数组的形式-->
+        </li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript">
+    var demon= new Vue({
+        el:'#app',
+        data:{
+            items:[90,10,33,88,99,20,77,44,53,7],
+            students:[
+                {name:'Panda',age:20},
+                {name:'Coala',age:18},
+                {name:'elephant',age:22},
+                {name:'bird',age:4}
+            ]
+        },
+        computed:{/*对数组进行排列，computed：可以根据数据的改动随时改动*/
+            sortItems:function () {
+                return this.items.sort(sortNumber);
+            },
+            sortStudents:function () {
+                return sortByKey(this.students,'age');
+                /*直接调用下面定义的排列数组函数sortByKey(),是按照年龄排序的*/
+            }
+            
+        }
+    });
+    /*新定义一个函数，这是js的一个bug，不写下边这个函数会出现先加入的数据没有进行排序*/
+    function sortNumber(a,b) {
+        return a-b;
+    }
+    function sortByKey(array,key){
+        /*定义数值排序的一个函数，上面就直接调用编写的这个排序数组函数*/
+        return array.sort(function(a,b){
+            var x=a[key];
+            var y=b[key];
+            return ((x<y)?-1:((x>y)?1:0));
+        });
+    }
+</script>
+</html>
