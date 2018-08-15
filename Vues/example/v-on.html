@@ -14,13 +14,15 @@
 <div id="app">
     <p>得分结果：{{score}}</p>
     <button v-on:click="addScore">加分</button>
-    <button v-on:click="subScore">减分</button>
+    <button @click="subScore">减分</button><!--@代替上面提到的v-on-->
+    <input type="text" @keyup.enter="onenter" v-model="score2"><!--v-model提取数据-->
 </div>
 <script type="text/javascript">
     var demon= new Vue({
         el:'#app',
         data:{
             score:0,
+            score2:1,
         },
         methods:{
             addScore:function () {
@@ -28,6 +30,9 @@
             },
             subScore:function () {
                 return this.score--;
+            },
+            onenter:function () {
+                return this.score=this.score+parseInt(this.score2);/*parseInt把数据变成整数类型*/
             }
         }
     })

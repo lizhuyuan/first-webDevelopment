@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind实例（绑定标签上的属性）</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<style>
+    .classA{color: brown}
+    .classB{color: gold;font-size: 24px}
+</style>
+<body>
+<h1>v-bind实例（绑定标签上的属性）</h1>
+<div id="app">
+    <img v-bind:src="imgSrc1" width="200px"><img v-bind:src="imgSrc" width="200px">
+    <hr>
+    <div :class="className">v-bind绑定class</div>
+    <div :class="{classB:isOk}">v-bind绑定class的判断</div>
+    <div :class="[classA,classB]">v-bind绑定class中的数组</div>
+    <div :class="isOk?classA:classB">v-bind绑定三元运算符</div>
+    <div :style="object">v-bind绑定对象</div>
+    <hr>
+    <input type="checkbox" id="input1" v-model="isOk">
+    <label for="input1">{{isOk}}</label>
+</div>
+</body>
+<script type="text/javascript">
+    var demon= new Vue({
+        el:'#app',
+        data:{
+            message:'hello world哈哈!',
+            imgSrc:'../assets/img/路飞.jpg',
+            imgSrc1:'http://pic.58pic.com/58pic/15/57/84/70H58PICCJt_1024.jpg',
+            className:'classA',
+            isOk:'true',
+            classA:'classA',
+            classB:'classB',
+            object:{
+                color:'green',
+                fontSize:'28px'
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.directive自定义指令</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>vue.directive自定义指令</h1>
+<hr>
+<div id="app">
+    <div v-selfs="color" id="zhu">{{num}}</div>
+    <button @click="add">add</button>
+</div>
+</body>
+<script type="text/javascript">
+    Vue.directive('selfs',function(el,binding,vnode) {
+     console.log(el);
+     console.log(binding);
+     console.log(binding.name);
+     console.log(binding.value);
+        el.style='color:'+binding.value;
+    });
+    var demon=new Vue({
+        el:'#app',
+        data:{
+            num:16,
+            color:'red'
+        },
+        methods:{
+            add:function () {
+                return this.num++;
+            }
+        }
+    })
+</script>
+</html>

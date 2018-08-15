@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component组件，全局组件和局部组件</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>component组件</h1>
+<hr>
+<div id="app">
+  <scalavender></scalavender>
+    <part></part>
+</div>
+</body>
+<script type="text/javascript">
+    Vue.component('scalavender',{
+        template:`<div style="color:red">全局组件scalavender</div>`
+    });
+    var demon=new Vue({
+        el:'#app',
+        components:{/*局部即在构造器里面定义的组件，所以用“components*/
+            "part":{
+                template:`<div style="color:green">局部scalavender组件</div>`
+            }
+        }
+    })
+</script>
+</html>

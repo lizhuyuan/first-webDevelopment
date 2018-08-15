@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component-props,组件props属性的设置</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>component-props,组件props属性的设置</h1>
+<hr>
+<div id="app">
+    <parts :here="message"></parts><!--v-bind指令的写法-->
+    <parts here="china"></parts><!--标签属性的写法-->
+</div>
+</body>
+<script type="text/javascript">
+    var demon=new Vue({
+        el:'#app',
+        data:{
+            message:'中国'
+        },
+        components:{
+            "parts":{
+                template:`<div style="color:green">局部parts组件--{{here}}</div>`,
+                props:['here']/*属性here的格式就是这样props：['**']*/
+            }
+    }
+    })
+</script>
+</html>

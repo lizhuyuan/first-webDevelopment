@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.set构造器外部调用数据</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>vue.set构造器外部调用数据</h1>
+<hr>
+<div id="app">
+    <p>{{count}}</p>
+</div>
+<button onclick="add()">add</button>
+</body>
+<script type="text/javascript">
+    function add(){
+        /*console.log('ok');*/
+        Vue.set(outData,'count',2)
+       /* demon.count++;*/
+    }
+    var outData={
+        count:1,/*编写的时候要注意顺序，代码都是从上到下的编译，
+        这段代码放在下面构造器的上面，要不然会报错说找不到count*/
+    }
+    var demon= new Vue({
+        el:'#app',
+        data:outData
+    });
+</script>
+</html>
